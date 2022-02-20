@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="secondary ion-text-center">
     <ion-title>
-      <img src="/assets/log.png">     
+      <img src="/assets/logo.png">     
       <ion-button color="secondary">
         <ion-icon slot="icon-only" name="arrow-down-outline"></ion-icon>
       </ion-button>
@@ -9,16 +9,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
+<ion-content class="ion-padding" color="primary">
+  <div class="background">
+    <div class="user-information ion-text-center">
+      <img class="perfil" src="/assets/perfil.jpg">      
+      <span>
+        Nome: <strong>Bruno Martins Peçanha</strong>
+      </span>
+      <span>
+        Aniversário: <strong>12 de abril</strong>
+      </span>
+      <span>
+        Atendido por último por: <strong>Léo Neymar</strong>
+      </span>
+    </div>
+
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-icon slot="start" [name]="item.icon"></ion-icon>
+        <ion-label>{{ item.text}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+  </div>
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-toolbar color="primary">
-    <ion-slides>
+  <ion-toolbar color="primary" >
+    <ion-slides [options]="slideOptions">
         <ion-slide *ngFor="let option of options">
           <div class="container ion-text-left">
             <ion-icon [name]="option.icon"></ion-icon>
-            <spa>{{ option.text }}</spa>
+            <span>{{ option.text }}</span>
           </div>
         </ion-slide>
     </ion-slides>
