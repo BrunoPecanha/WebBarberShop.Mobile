@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary ion-text-center">
+    <ion-title>
+      <img src="/assets/log.png">     
+      <ion-button color="secondary">
+        <ion-icon slot="icon-only" name="arrow-down-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-slides>
+        <ion-slide *ngFor="let option of options">
+          <div class="container ion-text-left">
+            <ion-icon [name]="option.icon"></ion-icon>
+            <spa>{{ option.text }}</spa>
+          </div>
+        </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>

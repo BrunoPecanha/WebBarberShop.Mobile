@@ -1,0 +1,19 @@
+ion-header {
+  ion-toolbar{
+    ion-title {
+      img {
+        width: 30%;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+
+      span {
+        font-size: 22px;
+      }
+
+      ion-button {
+        display: block;
+      }
+    }
+  }
+}

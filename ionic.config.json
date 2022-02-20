@@ -1,0 +1,7 @@
+{
+  "name": "WebBarberShopMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
