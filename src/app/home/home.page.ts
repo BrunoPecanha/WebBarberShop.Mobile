@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2, ViewChild } from '@angular/core';
+import { AnimationController, Animation, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage  {
 
+  @ViewChild('blocks') blocks: any;
+  @ViewChild('background') background: any;
   public options: Array<any> = [
     { 
       icon: 'people', 
@@ -40,28 +43,49 @@ export class HomePage {
   public items: Array<any> = [
     { 
       icon: 'people', 
-      text: "Filas"
+      text: "Perfil"
     },
     { 
       icon: 'log-in', 
-      text: "Entrar na fila"
+      text: "Configurações"
     },
-    { 
-      icon: 'storefront', 
-      text: "Serviços"
-    }
-    ,
     { 
       icon: 'chatbubbles', 
-      text: "Chat"
-    },
-    { 
-      icon: 'log-out', 
-      text: "Sair da fila"
-    }   
+      text: "Me ajuda"
+    }
   ]
 
+  public initialStep: number = 0;
+  private maxTranslate:  number;
+  private animation: Animation;
 
-  constructor() {}
+  constructor(private animationCtrl: AnimationController,
+    private plataform: Platform, 
+    private render: Renderer2
+    ) 
+    {
+      this.maxTranslate = this.plataform.height() - 100;
+    }
 
+    ngAfterViewInit(){   
+      this.createAnimation();
+    }
+
+   toggleBlocks() {     
+     this.initialStep = this.initialStep === 0 ? this.maxTranslate : 0;
+     this.animation.direction(this.initialStep === 0 ? 'reverse': 'normal').play();
+
+     this.setBackGroundOapacity();
+   } 
+
+  setBackGroundOapacity() {
+    this.render.setStyle(this.background.nativeElement, 'opacity', this.initialStep === 0 ? '0' : '1');
+  }
+
+  createAnimation() {    
+    this.animation = this.animationCtrl.create()
+    .addElement(this.blocks.nativeElement)
+    .duration(300)
+    .fromTo('transform', 'translateY(0)', `translateY(${this.maxTranslate}px)`)
+  }
 }
