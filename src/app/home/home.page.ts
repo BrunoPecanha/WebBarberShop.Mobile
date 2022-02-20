@@ -9,24 +9,59 @@ export class HomePage {
 
   public options: Array<any> = [
     { 
-      icon: 'person-add-outline', 
-      text: "Teste 0"
+      icon: 'people', 
+      text: "Filas"
     },
     { 
-      icon: 'person-add-outline', 
-      text: "Teste 1"
+      icon: 'log-in', 
+      text: "Entrar na fila"
+    },
+    { 
+      icon: 'storefront', 
+      text: "Serviços"
     }
     ,
     { 
-      icon: 'person-add-outline', 
-      text: "Teste 2"
+      icon: 'chatbubbles', 
+      text: "Chat"
     },
     { 
-      icon: 'person-add-outline', 
-      text: "Teste 3"
-    }
+      icon: 'log-out', 
+      text: "Sair da fila"
+    }   
   ]
+
+  public slideOptions: any = 
+  { 
+    slidesPerView: 2.5, 
+    freeMode: true
+  };
   
+  public items: Array<any> = [
+    { 
+      icon: 'people', 
+      text: "Filas"
+    },
+    { 
+      icon: 'log-in', 
+      text: "Entrar na fila"
+    },
+    { 
+      icon: 'storefront', 
+      text: "Serviços"
+    }
+    ,
+    { 
+      icon: 'chatbubbles', 
+      text: "Chat"
+    },
+    { 
+      icon: 'log-out', 
+      text: "Sair da fila"
+    }   
+  ]
+
+
   constructor() {}
 
 }
