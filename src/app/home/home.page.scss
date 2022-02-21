@@ -7,7 +7,7 @@ ion-header {
       align-items: flex-end;
 
       img {
-        width: 45%;
+        width: 30%;
         vertical-align: middle;        
       }
 
@@ -23,6 +23,11 @@ ion-header {
 }
 
 ion-content {
+
+  .qrcode {
+    width: 100px;
+  }
+
   .background {
     opacity: 0;
    
@@ -70,6 +75,12 @@ ion-content {
     overflow-y: scroll;
     z-index: 999;
 
+    &.fixed {
+      position: fixed;
+      top: 110px;
+      overflow-y: hidden;
+    }
+
     ion-card {
       .cash {
         span {
@@ -97,13 +108,13 @@ ion-content {
   padding-left: 10px;
 }
 
-ion-footer {
-  // height: 0; 
-  // &.hidden {
-  //   ion-slides {
-  //     opacity: 0;
-  //   }
- // }
+ion-footer {  
+   &.hidden {
+    height: 0;
+     ion-slides {
+      opacity: 0;
+    }
+  }
   
   ion-slide {
     .container {

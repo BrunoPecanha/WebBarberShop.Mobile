@@ -12,22 +12,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-no-margin ion-padding-vertical"  color="primary">
+<ion-content class="ion-no-margin ion-padding-vertical"  color="primary" [scrollY]="!swiping">
   <div #background class="background opacity-transition">
     <div class="user-information ion-text-center">
-      <img class="perfil" src="/assets/perfil.jpg">      
-      <span>
-      <strong>Bruno Martins Peçanha</strong>
-      </span>
-      <span>
-       <strong>12 de Abril</strong>
-      </span>
-      <span>
-        Barbeiro favorito
-      </span>
-      <span>
-        <strong>Léo Neymar</strong>
-      </span>
+      <img class="qrcode" src="/assets/qrcode.png"> 
     </div>
 
     <ion-list>
@@ -44,9 +32,9 @@
     </ion-button>
   </div>
 
-  <div #blocks class="blocks">
+  <div #blocks class="blocks" [ngClass]="fixedBlocks() ? 'fixed' : null">
     <ion-card>
-      <ion-item class="ion-margin-vertical" lines="none">
+      <ion-item #swipeDown class="ion-margin-vertical" lines="none">
         <ion-icon slot="start" name="card-outline"></ion-icon>
         <ion-label>Rafael Lopes</ion-label>      
       </ion-item>
@@ -112,10 +100,10 @@
 
 </ion-content>
 
-<ion-footer [ngClass]="initialStep > 0 ? 'hidden' : null" class="ion-no-border">
+<ion-footer [ngClass]="fixedBlocks() ? 'hidden' : null" class="ion-no-border">
   <ion-toolbar color="primary" class="ion-no-margin ion-padding-vertical" >
-    <ion-slides [options]="slideOptions">
-        <ion-slide class="opacity-transition" *ngFor="let option of options">
+    <ion-slides class="opacity-transition" [options]="slideOptions">
+        <ion-slide *ngFor="let option of options">
           <div class="container ion-text-left">
             <ion-icon [name]="option.icon"></ion-icon>
             <span>{{ option.text }}</span>
