@@ -87,21 +87,18 @@ ion-content {
         &.value {         
           display: block;
         }
+          &.blue {
+            color: #0ab9cd;
+            font-size: 30px;
+          }
 
-        &.blue {
-          color: #0ab9cd;
-          font-size: 30px;
+          &.green {
+            color: #94c22b
+          }
         }
-
-        &.green {
-          color: #94c22b
-        }
-
-      }
       }
     }
   }
-
 }
 
 #saudacao {

@@ -11,27 +11,18 @@ export class HomePage  {
   @ViewChild('blocks') blocks: any;
   @ViewChild('background') background: any;
   @ViewChild('swipeDown') swipeDown: any;
-  public options: Array<any> = [
-    { 
-      icon: 'people', 
-      text: "Filas"
-    },
+  public options: Array<any> = [    
     { 
       icon: 'log-in', 
       text: "Entrar na fila"
     },
     { 
-      icon: 'storefront', 
-      text: "Serviços"
-    }
-    ,
-    { 
-      icon: 'chatbubbles', 
-      text: "Chat"
-    },
-    { 
       icon: 'log-out', 
       text: "Sair da fila"
+    },  
+    { 
+      icon: 'storefront', 
+      text: "Serviços"
     }   
   ]
 
