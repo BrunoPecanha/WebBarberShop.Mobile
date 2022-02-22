@@ -18,11 +18,11 @@ export class HomePage  {
     }, 
     { 
       icon: 'log-in', 
-      text: "Entrar na fila"
+      text: "Entrar"
     },
     { 
       icon: 'log-out', 
-      text: "Sair da fila"
+      text: "Sair"
     },  
     { 
       icon: 'storefront', 
@@ -34,7 +34,7 @@ export class HomePage  {
     },
     { 
       icon: 'construct', 
-      text: "Administração"
+      text: "Admin"
     }      
   ]
 
@@ -89,7 +89,7 @@ export class HomePage  {
     private render: Renderer2,
     private gestureCtrl: GestureController){
 
-      this.maxTranslate = this.plataform.height() - 170;
+      this.maxTranslate = this.plataform.height() - 200;
     }
 
     ngAfterViewInit(){   
