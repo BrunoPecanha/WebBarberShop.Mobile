@@ -1,0 +1,28 @@
+ion-content {
+    --background: black;
+    img {
+        width: 45%;
+    }
+}
+
+
+@keyframes slide-top{0%{transform:translateY(0)}100%{transform:translateY(-100px)}}
+.container {
+    animation:slide-top .9s cubic-bezier(.25,.46,.45,.94) alternate both;
+    margin-top: 80%;
+    size: 5x;
+}
+
+.footer {   
+    text-align: center;  
+    color: white;     
+}
+
+@keyframes rotate-center{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.footer-text {
+    animation:rotate-center .6s ease-in-out both;
+}
+
+ion-footer {
+    background-color: black;
+}
