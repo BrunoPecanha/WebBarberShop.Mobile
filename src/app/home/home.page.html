@@ -1,19 +1,22 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
     <ion-title>
-      <div class="ion-no-margin ion-padding-vertical">
-        <img src="/assets/logo.png">     
-        <span id="saudacao">Olá, Bruno</span>
-      </div>      
-      <ion-button (click)="toggleBlocks()"  color="light" fill="clear" size="small">
-        <ion-icon slot="icon-only" [name]="initialStep > 0 ? 'arrow-up-outline' : 'arrow-down-outline'"></ion-icon>
-      </ion-button>
+      <div class="logo ion-no-margin ion-padding-vertical">
+        <ion-icon name="sunny"></ion-icon>
+        <span id="saudacao">Bom dia, Bruno</span><br>
+        <span id="horasaudacao">Segunda-feira, 21/02/2022 às 10h12</span>       
+      </div>
+      <div style="padding-top: 40%">
+        <ion-button (click)="toggleBlocks()"  color="light" fill="clear" size="small">
+          <ion-icon slot="icon-only" [name]="initialStep > 0 ? 'arrow-up-outline' : 'arrow-down-outline'"></ion-icon>
+        </ion-button>
+      </div>            
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-no-margin ion-padding-vertical"  color="primary" [scrollY]="!swiping">
-  <div #background class="background opacity-transition">
+  <div #background class="background opacity-transition" style="margin-bottom: 0px;">
     <div class="user-information ion-text-center">
       <img class="qrcode" src="/assets/qrcode.png"> 
       <span>

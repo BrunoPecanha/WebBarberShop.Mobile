@@ -13,6 +13,10 @@ export class HomePage  {
   @ViewChild('swipeDown') swipeDown: any;
   public options: Array<any> = [    
     { 
+      icon: 'people', 
+      text: "Filas"
+    }, 
+    { 
       icon: 'log-in', 
       text: "Entrar na fila"
     },
@@ -23,7 +27,15 @@ export class HomePage  {
     { 
       icon: 'storefront', 
       text: "Serviços"
-    }   
+    },      
+    { 
+      icon: 'person-add', 
+      text: "Atender"
+    },
+    { 
+      icon: 'construct', 
+      text: "Administração"
+    }      
   ]
 
   public slideOptions: any = 
@@ -31,18 +43,37 @@ export class HomePage  {
     slidesPerView: 2.5, 
     freeMode: true
   };
+
+  public weather: Array<any> = [
+    { 
+      icon: 'partly-sunny', 
+      text: "sunnyClound"
+    },
+    { 
+      icon: 'partly-sunny', 
+      text: "nightCloud"
+    },
+    { 
+      icon: 'sunny', 
+      text: "sunny"
+    },
+    { 
+      icon: 'moon', 
+      text: "moon"
+    }
+  ]
   
   public items: Array<any> = [
     { 
-      icon: 'people', 
+      icon: 'person', 
       text: "Perfil"
     },
     { 
-      icon: 'log-in', 
+      icon: 'cog', 
       text: "Configurações"
     },
     { 
-      icon: 'chatbubbles', 
+      icon: 'help-circle', 
       text: "Me ajuda"
     }
   ]
@@ -56,10 +87,9 @@ export class HomePage  {
   constructor(private animationCtrl: AnimationController,
     private plataform: Platform, 
     private render: Renderer2,
-    private gestureCtrl: GestureController
-    ) 
-    {
-      this.maxTranslate = this.plataform.height() - 180;
+    private gestureCtrl: GestureController){
+
+      this.maxTranslate = this.plataform.height() - 170;
     }
 
     ngAfterViewInit(){   
@@ -91,7 +121,7 @@ export class HomePage  {
         this.setBackGroundOapacity(step);
     }
 
-    getStep(ev: GestureDetail): number{
+    getStep(ev: GestureDetail): number {
       return (this.initialStep + ev.deltaY) / this.maxTranslate;
     }
     
@@ -111,27 +141,27 @@ export class HomePage  {
 
     }
 
-   toggleBlocks() {     
+    toggleBlocks() {     
      this.initialStep = this.initialStep === 0 ? this.maxTranslate : 0;
      this.gesture.enable(false);
      this.animation.direction(this.initialStep === 0 ? 'reverse': 'normal').play();
 
      this.setBackGroundOapacity();
-   } 
+    } 
 
-  setBackGroundOapacity(value: number = null) {
-    this.render.setStyle(this.background.nativeElement, 'opacity', value ? value: this.initialStep === 0 ? '0' : '1');
-  }
+    setBackGroundOapacity(value: number = null) {
+      this.render.setStyle(this.background.nativeElement, 'opacity', value ? value: this.initialStep === 0 ? '0' : '1');
+    }
 
-  createAnimation() {    
-    this.animation = this.animationCtrl.create()
-    .addElement(this.blocks.nativeElement)
-    .duration(300)
-    .fromTo('transform', 'translateY(0)', `translateY(${this.maxTranslate}px)`)
-    .onFinish(() => this.gesture.enable(true));
-  }
+    createAnimation() {    
+      this.animation = this.animationCtrl.create()
+      .addElement(this.blocks.nativeElement)
+      .duration(300)
+      .fromTo('transform', 'translateY(0)', `translateY(${this.maxTranslate}px)`)
+      .onFinish(() => this.gesture.enable(true));
+    }
 
-  fixedBlocks() : boolean {
-    return this.swiping || this.initialStep === this.maxTranslate;
-  }
+    fixedBlocks() : boolean {
+      return this.swiping || this.initialStep === this.maxTranslate;
+    }
 }
